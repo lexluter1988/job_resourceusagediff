@@ -1,0 +1,51 @@
+
+resource_type_id: 1000956_CI_Free_Linux_VE
+usage: 446
+resource_type_id: 1000976_CI_Load_Balancers
+usage: 0
+resource_type_id: 1000958_CI_Windows_VE
+usage: 0
+resource_type_id: 1000967_CI_daily_backup
+usage: 0
+resource_type_id: 1000968_CI_weekly_backup
+
+
+resource_type_id: 1000974_CI_external_incoming_traffic
+usage: 518493
+resource_type_id: 1000975_CI_external_outgoing_traffic
+usage: 12549
+resource_type_id: 1000972_CI_internal_incoming_traffic
+usage: 0
+resource_type_id: 1000973_CI_internal_outgoing_traffic
+usage: 0
+
+resource_type_id: 1000963_CI_RAM_usage_running
+usage: 227840
+resource_type_id: 1000964_CI_RAM_usage_stopped
+usage: 113
+
+resource_type_id: 1002213_CI_network_disk_usage_running
+usage: 4556800
+resource_type_id: 1002214_CI_network_disk_usage_stopped
+usage: 5120
+
+resource_type_id: 1000959_CI_Virtual_Machine_CPU_Usage_running
+usage: 89168
+resource_type_id: 1000960_CI_Virtual_Machine_CPU_Usage_stopped
+usage: 133
+
+resource_type_id: 1000961_CI_Container_CPU_Usage_running
+usage: 0
+resource_type_id: 1000962_CI_Container_CPU_Usage_stopped
+usage: 0
+
+resource_type_id: 1000970_CI_bandwidth_limit_running
+usage: 455680
+resource_type_id: 1000971_CI_bandwidth_limit_stopped
+usage: 451
+
+
+resource_type_id: 1000966_CI_image_space_usage
+usage: 0
+resource_type_id: 1002215_CI_backup_space_usage
+usage: 0

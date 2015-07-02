@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resource-usage-report>
+    <ve-resource-usage-report ve-name="geonovos" ve-id="20144" os="linux-free" technology="VM" life-time-in-minutes="19718">
+        <resource-usage value="2510" resource-usage-type="while-running" resource-type="cpu-hours"/>
+        <resource-usage value="4284" resource-usage-type="while-running" resource-type="ram-hours"/>
+        <resource-usage value="84" resource-usage-type="while-running" resource-type="pcs-hours"/>
+        <resource-usage value="68531" resource-usage-type="while-running" resource-type="bandwidth-hours"/>
+        <resource-usage value="96079" resource-usage-type="while-stopped" resource-type="cpu-hours"/>
+        <resource-usage value="163975" resource-usage-type="while-stopped" resource-type="ram-hours"/>
+        <resource-usage value="3203" resource-usage-type="while-stopped" resource-type="pcs-hours"/>
+        <resource-usage value="2623598" resource-usage-type="while-stopped" resource-type="bandwidth-hours"/>
+        <resource-usage value="329" resource-type="public-ip-hours"/>
+        <ve-traffic traffic-type="public-incoming" used="117022233"/>
+        <ve-traffic traffic-type="public-outgoing" used="3075733"/>
+        <ve-traffic traffic-type="private-incoming" used="31980"/>
+        <ve-traffic traffic-type="private-outgoing" used="46904"/>
+        <active-backup-schedule schedule-name="weekly" was-assigned="157"/>
+        <active-backup-schedule schedule-name="daily" was-assigned="157"/>
+    </ve-resource-usage-report>
+    <ve-resource-usage-report ve-name="geonovos" ve-id="20824" os="linux-free" technology="CT" life-time-in-minutes="5">
+        <resource-usage value="24" resource-usage-type="while-running" resource-type="cpu-hours"/>
+        <resource-usage value="41" resource-usage-type="while-running" resource-type="ram-hours"/>
+        <resource-usage value="1" resource-usage-type="while-running" resource-type="pcs-hours"/>
+        <resource-usage value="81" resource-usage-type="while-running" resource-type="bandwidth-hours"/>
+        <resource-usage value="1" resource-usage-type="while-stopped" resource-type="cpu-hours"/>
+        <resource-usage value="1" resource-usage-type="while-stopped" resource-type="ram-hours"/>
+        <resource-usage value="1" resource-usage-type="while-stopped" resource-type="pcs-hours"/>
+        <resource-usage value="2" resource-usage-type="while-stopped" resource-type="bandwidth-hours"/>
+        <resource-usage value="1" resource-type="public-ip-hours"/>
+    </ve-resource-usage-report>
+    <ve-resource-usage-report ve-name="geonovos" ve-id="20825" os="linux-free" technology="CT" life-time-in-minutes="3164">
+        <resource-usage value="11105" resource-usage-type="while-running" resource-type="cpu-hours"/>
+        <resource-usage value="18952" resource-usage-type="while-running" resource-type="ram-hours"/>
+        <resource-usage value="371" resource-usage-type="while-running" resource-type="pcs-hours"/>
+        <resource-usage value="37903" resource-usage-type="while-running" resource-type="bandwidth-hours"/>
+        <resource-usage value="4714" resource-usage-type="while-stopped" resource-type="cpu-hours"/>
+        <resource-usage value="8045" resource-usage-type="while-stopped" resource-type="ram-hours"/>
+        <resource-usage value="158" resource-usage-type="while-stopped" resource-type="pcs-hours"/>
+        <resource-usage value="16090" resource-usage-type="while-stopped" resource-type="bandwidth-hours"/>
+        <resource-usage value="53" resource-type="public-ip-hours"/>
+        <ve-traffic traffic-type="public-incoming" used="41661468"/>
+        <ve-traffic traffic-type="public-outgoing" used="26066689"/>
+    </ve-resource-usage-report>
+    <images-size-hours>29219</images-size-hours>
+    <backup-size-hours>9073819644308</backup-size-hours>
+</resource-usage-report>

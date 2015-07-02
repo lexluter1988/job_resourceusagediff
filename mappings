@@ -1,0 +1,25 @@
+CI_external_incoming_traffic    = public-incoming
+CI_external_outgoing_traffic    = public-outgoing
+CI_internal_incoming_traffic    = private-incoming
+CI_internal_outgoing_traffic    = private-outgoing
+
+CI_RAM_usage_running            = while-running  ram-hours
+CI_RAM_usage_stopped            = while-stopped  ram-hours
+
+CI_network_disk_usage_running   = while-running pcs-hours
+CI_network_disk_usage_stopped   = while-stopped pcs-hours
+
+CI_Virtual_Machine_CPU_Usage_running = while-running cpu-hours
+CI_Virtual_Machine_CPU_Usage_stopped = while-stopped cpu-hours
+
+CI_Container_CPU_Usage_running  = while-running cpu-hours
+CI_Container_CPU_Usage_stopped  = while-stopped cpu-hours
+
+CI_bandwidth_limit_running      = while-running bandwidth-hours
+CI_bandwidth_limit_stopped      = while-stopped bandwidth-hours
+
+CI_image_space_usage            = images-size-hours
+CI_backup_space_usage           = backup-size-hours
+
+
+

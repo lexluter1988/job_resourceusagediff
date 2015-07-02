@@ -1,0 +1,36 @@
+plesk=# select rt_id,restype_name from resource_types where rt_id in(select rt_id from subs_resources where sub_id = 1075087) and restype_name like '%CI %';
+  rt_id  |             restype_name
+---------+---------------------------------------
+ 1000976 | CI Load Balancers
+
+ 1000974 | CI external incoming traffic
+ 1000975 | CI external outgoing traffic
+ 1000973 | CI internal outgoing traffic
+ 1000972 | CI internal incoming traffic
+
+ 1000963 | CI RAM usage running
+ 1000964 | CI RAM usage stopped
+
+ 1002213 | CI network disk usage running
+ 1002214 | CI network disk usage stopped
+
+ 1000970 | CI bandwidth limit running
+ 1000971 | CI bandwidth limit stopped
+
+ 1000967 | CI daily backup
+ 1000968 | CI weekly backup
+
+ 1000966 | CI image space usage
+ 1002215 | CI backup space usage
+
+ 1000961 | CI Container CPU Usage running
+ 1000962 | CI Container CPU Usage stopped
+
+ 1000959 | CI Virtual Machine CPU Usage running
+ 1000960 | CI Virtual Machine CPU Usage stopped
+
+ 1000956 | CI Free Linux VE
+ 1000958 | CI Windows VE
+
+(24 rows)
+
