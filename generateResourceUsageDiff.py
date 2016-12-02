@@ -1,4 +1,3 @@
-__author__ = 'lexluter1988'
 #!/bin/python
 
 import re
@@ -16,7 +15,8 @@ from poaupdater import uPEM, uSysDB, uLogging, uDBSchema, uPDLDBSchema, uDLModel
 def generate_update(sub_id, rt_id, delta):
     connect = uSysDB.connect()
     cursor = connect.cursor()
-    cursor.execute("SELECT rt_instance_id FROM subs_resources WHERE rt_id = '%s' AND sub_id = '%s'" % ( rt_id, sub_id))
+    cursor.execute(
+        "SELECT rt_instance_id FROM subs_resources WHERE rt_id = '%s' AND sub_id = '%s'" % (rt_id, sub_id))
     rti_id = cursor.fetchall()[0][0]
     cursor.close()
     connect.close()
@@ -53,10 +53,10 @@ def connect_via_rpc(mn_ip):
 
 
 def get_resource_usage_for_period(sub_id, api, rt_id):
-    params = {  'subscription_id': sub_id,
-                'resource_type_ids': [rt_id],
-                'from_time': 1427846401,
-                'to_time': 1431475201}
+    params = {'subscription_id': sub_id,
+              'resource_type_ids': [rt_id],
+              'from_time': 1427846401,
+              'to_time': 1431475201}
     return api.execute('pem.getResourceUsageForPeriod', **params)
 
 
@@ -67,13 +67,15 @@ def get_root_resource(x, rt):
     return 0
 
 # function to get cpu usage for ct
+
+
 def ct_get_cpu_usage(x, rut):
     usage_sum = 0
     for child in x:
         if child.get('technology') == "CT":
             for sub_child in child:
-                 if sub_child.get('resource-usage-type') is not None and sub_child.get('resource-type') == "cpu-hours" and sub_child.get('resource-usage-type') == rut:
-                     usage_sum += int(sub_child.get('value'))
+                if sub_child.get('resource-usage-type') is not None and sub_child.get('resource-type') == "cpu-hours" and sub_child.get('resource-usage-type') == rut:
+                    usage_sum += int(sub_child.get('value'))
     return usage_sum
 
 
@@ -84,7 +86,7 @@ def vm_get_cpu_usage(x, rut):
         if child.get('technology') == "VM":
             for sub_child in child:
                 if sub_child.get('resource-usage-type') is not None and sub_child.get('resource-type') == "cpu-hours" and sub_child.get('resource-usage-type') == rut:
-                     usage_sum += int(sub_child.get('value'))
+                    usage_sum += int(sub_child.get('value'))
     return usage_sum
 
 
@@ -271,55 +273,83 @@ sub_id = int(sys.argv[1])
 connection = connect_via_rpc("192.168.133.12")
 api = Api(connection)
 
-external_incoming_traffic_resource_id = map_ci_resource(sub_id, 'CI external incoming traffic')
-external_outgoing_traffic_resource_id = map_ci_resource(sub_id, 'CI external outgoing traffic')
-internal_incoming_traffic_resource_id = map_ci_resource(sub_id, 'CI internal incoming traffic')
-internal_outgoing_traffic_resource_id = map_ci_resource(sub_id, 'CI internal outgoing traffic')
+external_incoming_traffic_resource_id = map_ci_resource(
+    sub_id, 'CI external incoming traffic')
+external_outgoing_traffic_resource_id = map_ci_resource(
+    sub_id, 'CI external outgoing traffic')
+internal_incoming_traffic_resource_id = map_ci_resource(
+    sub_id, 'CI internal incoming traffic')
+internal_outgoing_traffic_resource_id = map_ci_resource(
+    sub_id, 'CI internal outgoing traffic')
 
 ram_running_resource_id = map_ci_resource(sub_id, 'CI RAM usage running')
 ram_stopped_resource_id = map_ci_resource(sub_id, 'CI RAM usage stopped')
 
-network_disk_running_resource_id = map_ci_resource(sub_id, 'CI network disk usage running')
-network_disk_stopped_resource_id = map_ci_resource(sub_id, 'CI network disk usage stopped')
+network_disk_running_resource_id = map_ci_resource(
+    sub_id, 'CI network disk usage running')
+network_disk_stopped_resource_id = map_ci_resource(
+    sub_id, 'CI network disk usage stopped')
 
-bandwidth_limit_running_resource_id = map_ci_resource(sub_id, 'CI bandwidth limit running')
-bandwidth_limit_stopped_resource_id = map_ci_resource(sub_id, 'CI bandwidth limit stopped')
+bandwidth_limit_running_resource_id = map_ci_resource(
+    sub_id, 'CI bandwidth limit running')
+bandwidth_limit_stopped_resource_id = map_ci_resource(
+    sub_id, 'CI bandwidth limit stopped')
 
 daily_backup_resource_id = map_ci_resource(sub_id, 'CI daily backup')
 weekly_backup_resource_id = map_ci_resource(sub_id, 'CI weekly backup')
 
 image_disk_usage_resource_id = map_ci_resource(sub_id, 'CI image space usage')
-backup_disk_usage_resource_id = map_ci_resource(sub_id, 'CI backup space usage')
+backup_disk_usage_resource_id = map_ci_resource(
+    sub_id, 'CI backup space usage')
 
-ct_cpu_usage_running_resource_id = map_ci_resource(sub_id, 'CI Container CPU Usage running')
-ct_cpu_usage_stopped_resource_id = map_ci_resource(sub_id, 'CI Container CPU Usage stopped')
+ct_cpu_usage_running_resource_id = map_ci_resource(
+    sub_id, 'CI Container CPU Usage running')
+ct_cpu_usage_stopped_resource_id = map_ci_resource(
+    sub_id, 'CI Container CPU Usage stopped')
 
-vm_cpu_usage_running_resource_id = map_ci_resource(sub_id, 'CI Virtual Machine CPU Usage running')
-vm_cpu_usage_stopped_resource_id = map_ci_resource(sub_id, 'CI Virtual Machine CPU Usage stopped')
+vm_cpu_usage_running_resource_id = map_ci_resource(
+    sub_id, 'CI Virtual Machine CPU Usage running')
+vm_cpu_usage_stopped_resource_id = map_ci_resource(
+    sub_id, 'CI Virtual Machine CPU Usage stopped')
 
 tree = ET.parse('1039164')
 root = tree.getroot()
 
-get_usage_delta_root(sub_id, api, image_disk_usage_resource_id, "images-size-hours")
-get_usage_delta_root(sub_id, api, backup_disk_usage_resource_id, "backup-size-hours")
+get_usage_delta_root(
+    sub_id, api, image_disk_usage_resource_id, "images-size-hours")
+get_usage_delta_root(
+    sub_id, api, backup_disk_usage_resource_id, "backup-size-hours")
 
-get_usage_delta_by_type(sub_id, api, ram_running_resource_id, "ram-hours", "while-running")
-get_usage_delta_by_type(sub_id, api, ram_stopped_resource_id, "ram-hours", "while-stopped")
+get_usage_delta_by_type(
+    sub_id, api, ram_running_resource_id, "ram-hours", "while-running")
+get_usage_delta_by_type(
+    sub_id, api, ram_stopped_resource_id, "ram-hours", "while-stopped")
 
-get_usage_delta_by_type(sub_id, api, network_disk_running_resource_id, "pcs-hours", "while-running")
-get_usage_delta_by_type(sub_id, api, network_disk_stopped_resource_id, "pcs-hours", "while-stopped")
+get_usage_delta_by_type(
+    sub_id, api, network_disk_running_resource_id, "pcs-hours", "while-running")
+get_usage_delta_by_type(
+    sub_id, api, network_disk_stopped_resource_id, "pcs-hours", "while-stopped")
 
-get_usage_delta_by_type(sub_id, api, network_disk_running_resource_id, "bandwidth-hours", "while-running")
-get_usage_delta_by_type(sub_id, api, network_disk_stopped_resource_id, "bandwidth-hours", "while-stopped")
+get_usage_delta_by_type(
+    sub_id, api, bandwidth_limit_running_resource_id, "bandwidth-hours", "while-running")
+get_usage_delta_by_type(
+    sub_id, api, bandwidth_limit_stopped_resource_id, "bandwidth-hours", "while-stopped")
 
-get_ct_usage_delta_by_cpu(sub_id, api, ct_cpu_usage_running_resource_id, "while-running")
-get_ct_usage_delta_by_cpu(sub_id, api, ct_cpu_usage_stopped_resource_id, "while-stopped")
+get_ct_usage_delta_by_cpu(
+    sub_id, api, ct_cpu_usage_running_resource_id, "while-running")
+get_ct_usage_delta_by_cpu(
+    sub_id, api, ct_cpu_usage_stopped_resource_id, "while-stopped")
 
-get_vm_usage_delta_by_cpu(sub_id, api, vm_cpu_usage_running_resource_id, "while-running")
-get_vm_usage_delta_by_cpu(sub_id, api, vm_cpu_usage_stopped_resource_id, "while-stopped")
+get_vm_usage_delta_by_cpu(
+    sub_id, api, vm_cpu_usage_running_resource_id, "while-running")
+get_vm_usage_delta_by_cpu(
+    sub_id, api, vm_cpu_usage_stopped_resource_id, "while-stopped")
 
-get_usage_delta_by_traffic(sub_id, api, external_incoming_traffic_resource_id, "public-incoming")
-get_usage_delta_by_traffic(sub_id, api, external_outgoing_traffic_resource_id, "public-outgoing")
-get_usage_delta_by_traffic(sub_id, api, internal_incoming_traffic_resource_id, "private-incoming")
-get_usage_delta_by_traffic(sub_id, api, internal_outgoing_traffic_resource_id, "private-outgoing")
-
+get_usage_delta_by_traffic(
+    sub_id, api, external_incoming_traffic_resource_id, "public-incoming")
+get_usage_delta_by_traffic(
+    sub_id, api, external_outgoing_traffic_resource_id, "public-outgoing")
+get_usage_delta_by_traffic(
+    sub_id, api, internal_incoming_traffic_resource_id, "private-incoming")
+get_usage_delta_by_traffic(
+    sub_id, api, internal_outgoing_traffic_resource_id, "private-outgoing")
